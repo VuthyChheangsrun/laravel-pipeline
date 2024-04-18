@@ -28,8 +28,25 @@ pipeline {
             echo 'Run was Successful'  
         }
         failure {
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], from: 'address not configured yet  <nobody@nowhere>', mimeType: 'text/plain', replyTo: 'jenkins@gmail.com', subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}", to: "mailtrap@gmail.com";
-            // mail bcc: '', body: "See <${env.BUILD_URL}display/redirect>\n\nChanges:\n\n\n------------------------------------------\n${env.BUILD_LOG}", cc: '', charset: 'UTF-8', from: 'address not configured yet  <nobody@nowhere>', mimeType: 'text/plain', replyTo: 'jenkins@gmail.com', subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}", to: "mailtrap@gmail.com";  
+            emailext body: 'A Test EMail',
+            recipientProviders: [[$class: 'DevelopersRecipientProvider'],
+            [$class: 'RequesterRecipientProvider']],
+            from: 'address not configured yet  <nobody@nowhere>',
+            mimeType: 'text/plain',
+            replyTo: 'jenkins@gmail.com',
+            subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            to: "mailtrap@gmail.com";
+
+            
+            // mail bcc: '',
+            // body: "See <${env.BUILD_URL}display/redirect>\n\nChanges:\n\n\n------------------------------------------\n${env.BUILD_URL}",
+            // cc: '',
+            // charset: 'UTF-8',
+            // from: 'address not configured yet  <nobody@nowhere>',
+            // mimeType: 'text/plain',
+            // replyTo: 'jenkins@gmail.com',
+            // subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            // to: "mailtrap@gmail.com";  
         }
     }  
 }
