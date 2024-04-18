@@ -47,6 +47,6 @@ pipeline {
         //     replyTo: 'jenkins@gmail.com',
         //     subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
         //     to: "mailtrap@gmail.com";  
-        // }
+        }
     }  
 }
