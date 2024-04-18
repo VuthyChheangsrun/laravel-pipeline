@@ -28,7 +28,7 @@ pipeline {
             echo 'Run was Successful'  
         }
         failure {
-            mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/plain', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "mailtrap@gmail.com";  
+            mail bcc: '', body: "See <${env.BUILD_URL}/display/redirect>\n${env.BUILD_LOG}", cc: '', charset: 'UTF-8', from: 'address not configured yet  <nobody@nowhere>', mimeType: 'text/plain', replyTo: 'jenkins@gmail.com', subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}", to: "mailtrap@gmail.com";  
         }
     }  
 }
