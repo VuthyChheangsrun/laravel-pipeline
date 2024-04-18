@@ -28,7 +28,7 @@ pipeline {
             echo 'Run was Successful'  
         }
         failure {
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}'
+            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}", charset: 'UTF-8', from: 'address not configured yet  <nobody@nowhere>', mimeType: 'text/plain', replyTo: 'jenkins@gmail.com', subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}", to: "mailtrap@gmail.com";
             // mail bcc: '', body: "See <${env.BUILD_URL}display/redirect>\n\nChanges:\n\n\n------------------------------------------\n${env.BUILD_LOG}", cc: '', charset: 'UTF-8', from: 'address not configured yet  <nobody@nowhere>', mimeType: 'text/plain', replyTo: 'jenkins@gmail.com', subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}", to: "mailtrap@gmail.com";  
         }
     }  
