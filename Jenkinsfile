@@ -28,13 +28,13 @@ pipeline {
             echo 'Run was Successful'  
         }
         failure {
-            emailext // body: 'A Test EMail',
+            emailext body: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:\n\nCheck console output at $BUILD_URL to view the results.",
             // recipientProviders: [[$class: 'DevelopersRecipientProvider'],
             // [$class: 'RequesterRecipientProvider']],
             // from: 'address not configured yet  <nobody@nowhere>',
             // mimeType: 'text/plain',
             // replyTo: 'jenkins@gmail.com',
-            // subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             // to: "mailtrap@gmail.com";
 
 
