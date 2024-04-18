@@ -28,7 +28,7 @@ pipeline {
             echo 'Run was Successful'  
         }
         failure {
-            mail bcc: '', body: "See <${env.BUILD_URL}display/redirect>\n\nChanges:\n\n\n------------------------------------------'${env.BUILD_URL}/consoleText'", cc: '', charset: 'UTF-8', from: 'address not configured yet  <nobody@nowhere>', mimeType: 'text/plain', replyTo: 'jenkins@gmail.com', subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}", to: "mailtrap@gmail.com";  
+            mail bcc: '', body: "See <${env.BUILD_URL}display/redirect>\n\nChanges:\n\n\n------------------------------------------\n$${env.BUILD_LOG, maxLines=9999, escapeHtml=false}", cc: '', charset: 'UTF-8', from: 'address not configured yet  <nobody@nowhere>', mimeType: 'text/plain', replyTo: 'jenkins@gmail.com', subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}", to: "mailtrap@gmail.com";  
         }
     }  
 }
