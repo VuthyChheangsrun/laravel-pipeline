@@ -38,7 +38,7 @@ pipeline {
             // to: "mailtrap@gmail.com";
 
             sh 'pwd'
-            sh "echo /var/jenkins_home/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}/log"
+            sh "cat /var/jenkins_home/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}/log"
 
             mail bcc: '',
             body: "See <${env.BUILD_URL}display/redirect>\n\nChanges:\n\n\n------------------------------------------\n ${env.BUILD_CONSOLE}",
