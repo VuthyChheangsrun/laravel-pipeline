@@ -39,7 +39,7 @@ pipeline {
 
 
             mail bcc: '',
-            body: "See <${env.BUILD_URL}display/redirect>\n\nChanges:\n\n\n------------------------------------------\n ${cat env.BUILD_URL}",
+            body: "See <${env.BUILD_URL}display/redirect>\n\nChanges:\n\n\n------------------------------------------\n ${env.BUILD_URL}",
             cc: '',
             charset: 'UTF-8',
             from: 'address not configured yet  <nobody@nowhere>',
