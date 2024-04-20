@@ -5,7 +5,7 @@ pipeline {
         stage('Fetch from GitHub') { // build steps
             steps {
                 echo 'Fetching from GitHub'
-                git branch: 'main', url:'https://github.com/VuthyChheangsrun/laravel-pipeline.git'
+                gits branch: 'main', url:'https://github.com/VuthyChheangsrun/laravel-pipeline.git'
             }
         }
         stage('Build using Tools') {
