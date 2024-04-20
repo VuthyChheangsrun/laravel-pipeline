@@ -37,11 +37,11 @@ pipeline {
             // subject: "Build fail in jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             // to: "mailtrap@gmail.com";
 
-            sh 'pwd'
-            sh "cat /var/jenkins_home/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}/log"
+            // sh 'pwd'
+            // sh "cat /var/jenkins_home/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}/log"
 
             mail bcc: '',
-            body: "See <${env.BUILD_URL}display/redirect>\n\nChanges:\n\n\n------------------------------------------\n ${env.BUILD_CONSOLE}",
+            body: "Build failed\n\nSee <${env.BUILD_URL}display/redirect>",
             cc: '',
             charset: 'UTF-8',
             from: 'address not configured yet  <nobody@nowhere>',
