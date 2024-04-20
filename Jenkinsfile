@@ -28,7 +28,7 @@ pipeline {
             echo 'Run was Successful'  
         }
         failure {
-            emailext body: echo $(cat ${env.BUILD_URL}/log),
+            emailext body: echo $(cat env.BUILD_URL/log),
             recipientProviders: [[$class: 'DevelopersRecipientProvider'],
             [$class: 'RequesterRecipientProvider']],
             from: 'address not configured yet  <nobody@nowhere>',
